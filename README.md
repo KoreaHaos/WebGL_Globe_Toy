@@ -2,7 +2,7 @@
 
 A modification/simplification of [globetweeter](http://plopbyte.com/globetweeter/) to gain a learning experience.
 
-View the [work](http://koreahaos.github.io/WebGlGlobeTest/) live!
+View the work [live!](http://koreahaos.github.io/WebGlGlobeTest/)
 
 <table>
     <tr>
