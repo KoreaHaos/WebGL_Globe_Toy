@@ -4,7 +4,8 @@
 	
 <link rel="stylesheet" type="text/css" href="css/main.css">
 
-<title>Where in the World?</title>
+
+<title>Globe Tweeter</title>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 <script>
 var Viewer;
@@ -70,6 +71,36 @@ var DisableWave = false;
 
 <body>
 
+<header id="masthead">
+	<div id="logo">
+		<!--<img src="img/globetweeter.png" alt="">-->
+		<h1 class="acknowledgement"><span>Globe</span><span>Tweeter</span></h1>
+	</div>
+	<div id="sharing">
+		<div id="facebook">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like layout="button_count" show_faces="false" width="100"></fb:like>
+		</div>		
+		<div id="twitter">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		</div>		
+	</div>	
+	<span id="pitch" class="cartoBook">
+		Watch Twitter's activity around the world in real-time
+	</span>
+</header>
+
+<div id="demo-instructions" class="hidden">
+	<div class="bubble">
+		<span>Welcome to GlobeTweeter!</span>
+		<p>Take the planet for a spin and discover what people are tweeting by clicking on their picture.</p>
+		<div id="shareLocation" class="cartoBold">
+			Find my location
+		</div>
+		<span id="location-instructions"></span>
+		<span class="dismiss blue"><img src="img/dismiss.png" alt="dismiss">hide this message</span>		
+	</div>
+</div>
+
 <ul id="countries" class="cartoBook">
 	<li>
 		<div class="flag"></div>
@@ -113,6 +144,25 @@ var DisableWave = false;
 	</li>	
 </ul>
 
+<ul id="stats">
+	<li>
+		<span id="generalTweetCount" class="cartoBold">0</span>
+		TWEETS SENT
+	</li>
+	<li>		
+		<span id="generalCountriesCount" class="cartoBold">0</span>
+		ACTIVE COUNTRIES
+	</li>
+	<li>
+		<span id="generalTimer" class="cartoBold">0</span>		
+		ELAPSED TIME
+	</li>
+	<li>
+		<span id="tweetsPersecond" class="cartoBold">0</span>
+		TWEETS/SEC
+	</li>			
+</ul>
+
 <div id="instructions">
 	<div id="ranking-instructions" class="hidden">
 		<div class="corner">
@@ -124,7 +174,47 @@ var DisableWave = false;
 	</div>
 </div>
 
+<div id="connection">
+  <div class="bubble">
+    Connecting to twitter stream
+  </div>
+</div>
 
+<section id="credits" class="bubble">
+	<header><span id="arrow"></span>Credits</header>
+	<hr />
+	<ul id="authors">
+		<li>
+			<span>Code by</span>
+			<span>Cedric Pinson</span>
+			<span><a href="http://plopbyte.net" target="_blank" title="Visit Cedric's website">website</a> / <a href="http://twitter.com/trigrou" target="_blank" title="Follow Cedric on Twitter">twitter</a> / <a href="http://osgjs.org" target="_blank" title="osgjs framework 3D used for the demo">osgjs</a></span>
+		</li>
+		<li>
+			<span>Design by</span>
+			<span>Guillaume Lecollinet</span>
+			<span><a href="http://www.littleworkshop.fr" target="_blank" title="Visit Guillaume's website">website</a> / <a href="http://twitter.com/glecollinet" target="_blank" title="Follow Guillaume on Twitter">twitter</a></span>
+		</li>
+		<li>
+			<span>Node.js hacking</span>
+			<span>Johan Euprhosine</span>
+			<span><a href="http://aminche.com" target="_blank" title="Visit Johan's website">website</a> / <a href="http://twitter.com/proppy" target="_blank" title="Follow Johan on Twitter">twitter</a></span>
+		</li>
+
+	</ul>
+</section>
+
+<div id="ViewContainer">
+<canvas id="3DView"></canvas>
+</div>
+<div id="TweetsProcessedStats"></div>
+<div id="TweetsPerSeconds"></div>
+<div id="TweetContent" class="hidden">
+</div>
+<!-- 
+<div id="hudHead" class="hud" >test</div>
+<div id="hudSearch" class="hud" ></div>
+<div id="hudContent" class="hud" >test</div>
+-->
 <canvas id="TweetPicture" width="64" height="64"> </canvas>
 <canvas id="TextRendering" width="512" height="32"> </canvas>
 <canvas id="HeightMap" width="128" height="64"> </canvas>
